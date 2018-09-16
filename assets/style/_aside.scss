@@ -1,0 +1,11 @@
+aside {
+  section {
+    margin-bottom: var(--gap);
+    @extend .box;
+
+    img {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+}

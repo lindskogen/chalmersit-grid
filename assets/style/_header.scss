@@ -1,0 +1,112 @@
+header[role="banner"] {
+  display: grid;
+  gap: var(--gap);
+  grid-template-rows: 1fr auto auto;
+  grid-template-columns: var(--outer-margin) 4fr 8fr var(--outer-margin);
+  grid-template-areas: "banner banner banner banner" ". heading dark-menu ." ". heading light-menu .";
+  height: 600px;
+
+  @media (max-width: 720px) {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 10px 1fr 10px;
+    grid-template-areas: "dark-menu dark-menu dark-menu" "banner banner banner" ". heading ." ". light-menu .";
+    gap: 0;
+    height: 400px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "dark-menu" "banner" "heading" "light-menu";
+    height: 400px;
+  }
+
+  img {
+    grid-column: banner;
+    grid-row: banner-start / dark-menu-end;
+    object-position: top;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: 720px) {
+      grid-row: dark-menu-start / banner-end;
+    }
+  }
+
+  hgroup {
+    font-weight: 300;
+    margin-top: 5px;
+    grid-area: heading;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    :first-child {
+      font-style: italic;
+      font-size: 1em;
+      color: #f34924;
+      font-weight: 300;
+    }
+
+    h1 {
+      font-weight: normal;
+    }
+
+    ::last-child {
+      font-size: 0.9em;
+      color: #888;
+      font-weight: 300;
+    }
+  }
+
+  .nav-background {
+    background-color: #000a;
+    grid-column: banner;
+    grid-row: dark-menu;
+  }
+
+  nav[role="menu"] {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    min-height: 60px;
+    align-self: end;
+    grid-area: dark-menu;
+
+    a {
+      color: #ddd;
+      font-size: 0.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  nav[role="toolbar"] {
+    grid-area: light-menu;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
