@@ -6,7 +6,7 @@ header[role="banner"] {
   grid-template-areas: "banner banner banner banner" ". heading dark-menu ." ". heading light-menu .";
   height: 600px;
 
-  @media (max-width: 720px) {
+  @media (max-width: $medium-screen) {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 10px 1fr 10px;
     grid-template-areas: "dark-menu dark-menu dark-menu" "banner banner banner" ". heading ." ". light-menu .";
@@ -14,7 +14,7 @@ header[role="banner"] {
     height: 400px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: $small-screen) {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr;
     grid-template-areas: "dark-menu" "banner" "heading" "light-menu";
@@ -29,7 +29,7 @@ header[role="banner"] {
     width: 100%;
     height: 100%;
 
-    @media (max-width: 720px) {
+    @media (max-width: $medium-screen) {
       grid-row: dark-menu-start / banner-end;
     }
   }
